@@ -18,7 +18,7 @@ Office.onReady(() => {
   Word.run(async (context) => {
     // insert a paragraph at the end of the document.
     const paragraph = context.document.body.insertParagraph(
-      "ExecuteFunction works. Button ID=" + event.source.id,
+      "ExecuteFunction works very well. Button ID=" + event.source.id,
       Word.InsertLocation.end
     );
 
