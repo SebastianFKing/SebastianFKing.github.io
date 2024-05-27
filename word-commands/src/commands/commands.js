@@ -32,6 +32,22 @@ Office.onReady(() => {
   event.completed();
 }
 
+async function applybodyparagraph(event) {
+  Word.run(async (context) => {
+    const range = context.document.getSelection();
+    const styleName = "Body Paragraph";
+    const style = context.document.getStyles().getByNameOrNullObject(styleName);
+    style.load();
+    await context.sync();
+    if (style.isNullObject) {
+    console.warn("There's no existing style with that name.");
+    } else {
+    range.style = styleName;
+    }
+  });
+  event.completed();
+}
+
 function getGlobal() {
   return typeof self !== "undefined"
     ? self
@@ -45,3 +61,4 @@ function getGlobal() {
 const g = getGlobal();
 
 Office.actions.associate("writeValue", writeValue);
+Office.actions.associate("applybodyparagraph", applybodyparagraph);
