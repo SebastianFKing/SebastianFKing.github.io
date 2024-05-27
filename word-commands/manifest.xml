@@ -58,7 +58,7 @@
 
 						  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
 								  <Action xsi:type="ExecuteFunction">
-									  <FunctionName>writeValue</FunctionName>
+									  <FunctionName>applybodyparagraph</FunctionName>
 								  </Action>
 					  </Control>
 				  </Group>
