@@ -32,19 +32,25 @@ Office.onReady(() => {
   event.completed();
 }
 
-async function applybodyparagraph(event) {
-  Word.run(async (context) => {
+async function applyBodyParagraph(event) {
+  await Word.run(async (context) => {
     const range = context.document.getSelection();
     const styleName = "Body Paragraph";
     const style = context.document.getStyles().getByNameOrNullObject(styleName);
-    style.load();
+    
+    style.load('name');
+    
     await context.sync();
+    
     if (style.isNullObject) {
-    console.warn("There's no existing style with that name.");
+      console.warn("There's no existing style with that name.");
     } else {
-    range.style = styleName;
+      range.style = styleName;
     }
+    
+    await context.sync();
   });
+  
   event.completed();
 }
 
