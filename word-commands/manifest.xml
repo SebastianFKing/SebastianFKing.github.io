@@ -2,10 +2,10 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>85c389da-047f-406c-bb4c-d9ede06884ce</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <ProviderName>Tippy</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="word-add-in-commands"/>
-  <Description DefaultValue="A template to get started."/>
+  <DisplayName DefaultValue="Tippy"/>
+  <Description DefaultValue="Document tools add-in."/>
   <IconUrl DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://learn.microsoft.com/office/dev/add-ins/develop/create-addin-commands"/>
@@ -24,78 +24,750 @@
       <Host xsi:type="Document">
         <DesktopFormFactor>
           <GetStarted>
-            <Title resid="Contoso.GetStarted.Title"/>
-            <Description resid="Contoso.GetStarted.Description"/>
-            <LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl"/>
+            <Title resid="Tippy.GetStarted.Title"/>
+            <Description resid="Tippy.GetStarted.Description"/>
+            <LearnMoreUrl resid="Tippy.GetStarted.LearnMoreUrl"/>
           </GetStarted>
           <FunctionFile resid="Commands.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
-             <OfficeTab id="TabHome">
+             <CustomTab id="TabHome">
 				  <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
-				  <Group id="Contoso.Group1">
-					  <!-- Label for your group. resid must point to a ShortString resource. -->
-					  <Label resid="Contoso.Group1Label" />
-					  <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
-					  <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
-					  <Icon>
-						  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-						  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-						  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
-					  </Icon>
+						  <Group id="Template.Group1">
+							  <!-- Label for your group. resid must point to a ShortString resource. -->
+							  <Label resid="Templates.Group.Label" />
+							  <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+							  <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+							  <Icon>
+								  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+								  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+								  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+							  </Icon>
 
-					  <!-- Control. It can be of type "Button" or "Menu". -->
-					  <Control xsi:type="Button" id="itemExecuteFunction">
-						  <Label resid="Contoso.Item2.Label" />
-								  <Supertip>
-									  <Title resid="Contoso.Item2.Label" />
-									  <Description resid="Contoso.Item2.Tooltip" />
-								  </Supertip>
-						  <Icon>
-							  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-							  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-							  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
-						  </Icon>
+							  <!-- Control. It can be of type "Button" or "Menu". -->
+							  <Control xsi:type="Button" id="ExecuteTemplate1">
+								  <Label resid="Tippy.Item2.Label" />
+										  <Supertip>
+											  <Title resid="Tippy.Item2.Label" />
+											  <Description resid="Tippy.Item2.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
 
-						  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+								  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+										  <Action xsi:type="ExecuteFunction">
+											  <FunctionName>applybodyparagraph</FunctionName>
+										  </Action>
+							  </Control>
+							  <Control xsi:type="Button" id="ExecuteTemplate2">
+								  <Label resid="Tippy.Item2.Label" />
+										  <Supertip>
+											  <Title resid="Tippy.Item2.Label" />
+											  <Description resid="Tippy.Item2.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+
+								  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+										  <Action xsi:type="ExecuteFunction">
+											  <FunctionName>applybodyparagraph</FunctionName>
+										  </Action>
+							  </Control>
+							  <Control xsi:type="Button" id="ExecuteTemplate3">
+								  <Label resid="Tippy.Item2.Label" />
+										  <Supertip>
+											  <Title resid="Tippy.Item2.Label" />
+											  <Description resid="Tippy.Item2.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+
+								  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+										  <Action xsi:type="ExecuteFunction">
+											  <FunctionName>applybodyparagraph</FunctionName>
+										  </Action>
+							  </Control>
+
+						  </Group>
+
+
+						  <Group id="Styles.Group">
+							  <!-- Label for your group. resid must point to a ShortString resource. -->
+							  <Label resid="Styles.Group.Label" />
+							  <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+							  <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+							  <Icon>
+								  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+								  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+								  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+							  </Icon>
+<!-- Paragraphs. -->
+							  <Control xsi:type="Button" id="NumPara">
+								  <Label resid="NumPara.Label" />
+										  <Supertip>
+											  <Title resid="NumPara.Label" />
+											  <Description resid="NumPara.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
 								  <Action xsi:type="ExecuteFunction">
 									  <FunctionName>applybodyparagraph</FunctionName>
 								  </Action>
-					  </Control>
-				  </Group>
-			  </OfficeTab>
+							  </Control>
+							  <Control xsi:type="Button" id="Para">
+								  <Label resid="Para.Label" />
+										  <Supertip>
+											  <Title resid="Para.Label" />
+											  <Description resid="Para.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+								  <Action xsi:type="ExecuteFunction">
+									  <FunctionName>applybodyparagraph</FunctionName>
+								  </Action>
+							  </Control>
+							  <Control xsi:type="Button" id="Para2">
+								  <Label resid="Para.Label" />
+										  <Supertip>
+											  <Title resid="Para.Label" />
+											  <Description resid="Para.Tooltip" />
+										  </Supertip>
+								  <Icon>
+									  <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									  <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									  <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+								  <Action xsi:type="ExecuteFunction">
+									  <FunctionName>applybodyparagraph</FunctionName>
+								  </Action>
+							  </Control>
+<!-- Headings. -->
+								<Control xsi:type="Menu" id="HeadingMenu">
+								  <Label resid="Headings.Label" />
+		
+								  <Supertip>
+								        <Title resid="Headings.Label" />
+								        <Description resid="Headings.Tooltip" />
+								  </Supertip>
+								  <Icon>
+								      <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+								      <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+								      <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+									  <Items>
+									    <Item id="Heading1">
+									      <Label resid="Heading1.Label" />
+									      <Supertip>
+									        <Title resid="Heading1.Label" />
+									        <Description resid="Heading1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="Heading2">
+									      <Label resid="Heading2.Label" />
+									      <Supertip>
+									        <Title resid="Heading2.Label" />
+									        <Description resid="Heading2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Heading3">
+									      <Label resid="Heading3.Label" />
+									      <Supertip>
+									        <Title resid="Heading3.Label" />
+									        <Description resid="Heading3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Heading4">
+									      <Label resid="Heading4.Label" />
+									      <Supertip>
+									        <Title resid="Heading4.Label" />
+									        <Description resid="Heading4.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Heading5">
+									      <Label resid="Heading5.Label" />
+									      <Supertip>
+									        <Title resid="Heading5.Label" />
+									        <Description resid="Heading5.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="Heading6">
+									      <Label resid="Heading6.Label" />
+									      <Supertip>
+									        <Title resid="Heading6.Label" />
+									        <Description resid="Heading6.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									  </Items>
+								</Control>
+<!-- Quotes. -->
+								<Control xsi:type="Menu" id="QuoteMenu">
+								  <Label resid="Quotes.Label" />
+		
+								  <Supertip>
+								        <Title resid="Quotes.Label" />
+								        <Description resid="Quotes.Tooltip" />
+								  </Supertip>
+								  <Icon>
+								      <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+								      <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+								      <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+									  <Items>
+									    <Item id="Quote.Header">
+									      <Label resid="Quote.Header.Label" />
+									      <Supertip>
+									        <Title resid="Quote.Header.Label" />
+									        <Description resid="Quote.Header.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="Quote1">
+									      <Label resid="Quote1.Label" />
+									      <Supertip>
+									        <Title resid="Quote1.Label" />
+									        <Description resid="Quote1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="Quote2">
+									      <Label resid="Quote2.Label" />
+									      <Supertip>
+									        <Title resid="Quote2.Label" />
+									        <Description resid="Quote2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Quote3">
+									      <Label resid="Quote3.Label" />
+									      <Supertip>
+									        <Title resid="Quote3.Label" />
+									        <Description resid="Quote3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Quote4">
+									      <Label resid="Quote4.Label" />
+									      <Supertip>
+									        <Title resid="Quote4.Label" />
+									        <Description resid="Quote4.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Quote.List1">
+									      <Label resid="Quote.List1.Label" />
+									      <Supertip>
+									        <Title resid="Quote.List1.Label" />
+									        <Description resid="Quote.List1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Quote.List2">
+									      <Label resid="Quote.List2.Label" />
+									      <Supertip>
+									        <Title resid="Quote.List2.Label" />
+									        <Description resid="Quote.List2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="Quote.List3">
+									      <Label resid="Quote.List3.Label" />
+									      <Supertip>
+									        <Title resid="Quote.List3.Label" />
+									        <Description resid="Quote.List3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="Quote.Bullet1">
+									      <Label resid="Quote.Bullet1.Label" />
+									      <Supertip>
+									        <Title resid="Quote.Bullet1.Label" />
+									        <Description resid="Quote.Bullet1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="Quote.Bullet2">
+									      <Label resid="Quote.Bullet2.Label" />
+									      <Supertip>
+									        <Title resid="Quote.Bullet2.Label" />
+									        <Description resid="Quote.Bullet2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="Quote.Bullet3">
+									      <Label resid="Quote.Bullet3.Label" />
+									      <Supertip>
+									        <Title resid="Quote.Bullet3.Label" />
+									        <Description resid="Quote.Bullet3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									  </Items>
+								</Control>
+<!-- Lists. -->
+								<Control xsi:type="Menu" id="ListMenu">
+								  <Label resid="Lists.Label" />
+								  <Supertip>
+								        <Title resid="Lists.Label" />
+								        <Description resid="Lists.Tooltip" />
+								  </Supertip>
+								  <Icon>
+								      <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+								      <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+								      <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+								  </Icon>
+									  <Items>
+									    <Item id="List.Header">
+									      <Label resid="List.Header.Label" />
+									      <Supertip>
+									        <Title resid="List.Header.Label" />
+									        <Description resid="List.Header.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="List1">
+									      <Label resid="List1.Label" />
+									      <Supertip>
+									        <Title resid="List1.Label" />
+									        <Description resid="List1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="List2">
+									      <Label resid="List2.Label" />
+									      <Supertip>
+									        <Title resid="List2.Label" />
+									        <Description resid="List2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="List3">
+									      <Label resid="List3.Label" />
+									      <Supertip>
+									        <Title resid="List3.Label" />
+									        <Description resid="List3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="List4">
+									      <Label resid="List4.Label" />
+									      <Supertip>
+									        <Title resid="List4.Label" />
+									        <Description resid="List4.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="List.alt1">
+									      <Label resid="List.alt1.Label" />
+									      <Supertip>
+									        <Title resid="List.alt1.Label" />
+									        <Description resid="List.alt1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="List.alt2">
+									      <Label resid="List.alt2.Label" />
+									      <Supertip>
+									        <Title resid="List.alt2.Label" />
+									        <Description resid="List.alt2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="List.alt3">
+									      <Label resid="List.alt3.Label" />
+									      <Supertip>
+									        <Title resid="List.alt3.Label" />
+									        <Description resid="List.alt3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="List.alt4">
+									      <Label resid="List.alt4.Label" />
+									      <Supertip>
+									        <Title resid="List.alt4.Label" />
+									        <Description resid="List.alt4.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									    <Item id="List.Bullet1">
+									      <Label resid="List.Bullet1.Label" />
+									      <Supertip>
+									        <Title resid="List.Bullet1.Label" />
+									        <Description resid="List.Bullet1.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									     <Item id="List.Bullet2">
+									      <Label resid="List.Bullet2.Label" />
+									      <Supertip>
+									        <Title resid="List.Bullet2.Label" />
+									        <Description resid="List.Bullet2.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="List.Bullet3">
+									      <Label resid="List.Bullet3.Label" />
+									      <Supertip>
+									        <Title resid="List.Bullet3.Label" />
+									        <Description resid="List.Bullet3.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									      <Item id="List.Bullet4">
+									      <Label resid="List.Bullet4.Label" />
+									      <Supertip>
+									        <Title resid="List.Bullet4.Label" />
+									        <Description resid="List.Bullet4.Tooltip" />
+									      </Supertip>
+									      <Icon>
+									        <bt:Image size="16" resid="Tippy.tpicon_16x16" />
+									        <bt:Image size="32" resid="Tippy.tpicon_32x32" />
+									        <bt:Image size="80" resid="Tippy.tpicon_80x80" />
+									      </Icon>
+									      <Action xsi:type="ExecuteFunction">
+									        <FunctionName>applybodyparagraph</FunctionName>
+									      </Action>
+									    </Item>
+									  </Items>
+								</Control>
+					  </Group>
+
+				  <Label resid="PG.TabLabel"/>
+			  </CustomTab>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
     </Hosts>
     <Resources>
 		  <bt:Images>
-			  <bt:Image id="Contoso.tpicon_16x16" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-16.png" />
-			  <bt:Image id="Contoso.tpicon_32x32" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-32.png" />
-			  <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-80.png" />
+			  <bt:Image id="Tippy.tpicon_16x16" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-16.png" />
+			  <bt:Image id="Tippy.tpicon_32x32" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-32.png" />
+			  <bt:Image id="Tippy.tpicon_80x80" DefaultValue="https://sebastianfking.github.io/word-commands/assets/icon-80.png" />
 		  </bt:Images>
 		  <bt:Urls>
 			  <bt:Url id="Commands.Url" DefaultValue="https://sebastianfking.github.io/word-commands/src/commands/commands.html" />
-			  <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+			  <bt:Url id="Tippy.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
 		  </bt:Urls>
 		  <!-- ShortStrings max characters==125. -->
 		  <bt:ShortStrings>
-
-			  <bt:String id="Contoso.WriteValueButton.Label" DefaultValue="Show task pane" />
-			  <bt:String id="Contoso.Item1.Label" DefaultValue="Show task pane" />
-			  <bt:String id="Contoso.Item2.Label" DefaultValue="Write value" />
-			  <bt:String id="Contoso.Menu.Label" DefaultValue="Dropdown menu" />
-			  <bt:String id="Contoso.Group1Label" DefaultValue="Commands group" />
-			  <bt:String id="Contoso.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+		  	<bt:String id="PG.TabLabel" DefaultValue="Tippy" />
+			  <bt:String id="Tippy.WriteValueButton.Label" DefaultValue="Show task pane" />
+			  <bt:String id="Tippy.Item1.Label" DefaultValue="Show task pane" />
+			  <bt:String id="Tippy.Item2.Label" DefaultValue="Write value" />
+			  <bt:String id="Tippy.Menu.Label" DefaultValue="Dropdown menu" />
+			  <bt:String id="Templates.Group.Label" DefaultValue="Templates" />
+			  <bt:String id="Styles.Group.Label" DefaultValue="Styles" />
+			  <bt:String id="Tippy.GetStarted.Title" DefaultValue="Tippy add-in loaded!" />
+		  	<!-- Paragraphs. -->
+			  <bt:String id="NumPara.Label" DefaultValue="Num. Para" />
+			  <bt:String id="Para.Label" DefaultValue="Para" />
+		  	<!-- Headings. -->
+				<bt:String id="Headings.Label" DefaultValue="Headings" />
+				<bt:String id="Heading1.Label" DefaultValue="Heading 1" />
+				<bt:String id="Heading2.Label" DefaultValue="Heading 2" />
+				<bt:String id="Heading3.Label" DefaultValue="Heading 3" />
+				<bt:String id="Heading4.Label" DefaultValue="Heading 4" />
+				<bt:String id="Heading5.Label" DefaultValue="Heading 5" />
+				<bt:String id="Heading6.Label" DefaultValue="Heading 6" />
+		  	<!-- Quotes. -->
+				<bt:String id="Quotes.Label" DefaultValue="Quotes" />
+				<bt:String id="Quote.Header.Label" DefaultValue="Quote Header" />
+				<bt:String id="Quote1.Label" DefaultValue="Quote 1" />
+				<bt:String id="Quote2.Label" DefaultValue="Quote 2" />
+				<bt:String id="Quote3.Label" DefaultValue="Quote 3" />
+				<bt:String id="Quote4.Label" DefaultValue="Quote 4" />
+				<bt:String id="Quote.List1.Label" DefaultValue="Quote List 1" />
+				<bt:String id="Quote.List2.Label" DefaultValue="Quote List 2" />
+				<bt:String id="Quote.List3.Label" DefaultValue="Quote List 3" />
+				<bt:String id="Quote.Bullet1.Label" DefaultValue="Quote Bullet 1" />
+				<bt:String id="Quote.Bullet2.Label" DefaultValue="Quote Bullet 1" />
+				<bt:String id="Quote.Bullet3.Label" DefaultValue="Quote Bullet 1" />	
+		  	<!-- Lists. -->
+				<bt:String id="Lists.Label" DefaultValue="Lists" />
+				<bt:String id="List.Header.Label" DefaultValue="List Header" />
+				<bt:String id="List1.Label" DefaultValue="List 1" />
+				<bt:String id="List2.Label" DefaultValue="List 2" />
+				<bt:String id="List3.Label" DefaultValue="List 3" />
+				<bt:String id="List4.Label" DefaultValue="List 4" />
+				<bt:String id="List.alt1.Label" DefaultValue="List 1 (alt.)" />
+				<bt:String id="List.alt2.Label" DefaultValue="List 2 (alt.)" />
+				<bt:String id="List.alt3.Label" DefaultValue="List 3 (alt.)" />
+				<bt:String id="List.alt4.Label" DefaultValue="List 4 (alt.)" />
+				<bt:String id="List.Bullet1.Label" DefaultValue="Bullet 1" />
+				<bt:String id="List.Bullet2.Label" DefaultValue="Bullet 2" />
+				<bt:String id="List.Bullet3.Label" DefaultValue="Bullet 3" />
+				<bt:String id="List.Bullet4.Label" DefaultValue="Bullet 4" />
 		  </bt:ShortStrings>
 		  <!-- LongStrings max characters==250. -->
 		  <bt:LongStrings>
 
-			  <bt:String id="Contoso.Item1.Tooltip" DefaultValue="Choose to show a task pane" />
-			  <bt:String id="Contoso.Item2.Tooltip" DefaultValue="Choose to show a task pane" />
-			  <bt:String id="Contoso.Menu.Tooltip" DefaultValue="Show the dropdown menu" />
+			  <bt:String id="Tippy.Item1.Tooltip" DefaultValue="Choose to show a task pane" />
+			  <bt:String id="Tippy.Item2.Tooltip" DefaultValue="Choose to show a task pane" />
+			  <bt:String id="Tippy.Menu.Tooltip" DefaultValue="Show the dropdown menu" />
+		  	<!-- Paragraphs. -->
+				<bt:String id="NumPara.Tooltip" DefaultValue="Insert numbered paragraph" />
+				<bt:String id="Para.Tooltip" DefaultValue="Insert paragraph" />
+		  	<!-- Headings. -->
+				<bt:String id="Headings.Tooltip" DefaultValue="Headings Menu" />
+				<bt:String id="Heading1.Tooltip" DefaultValue="Insert heading level 1" />
+				<bt:String id="Heading2.Tooltip" DefaultValue="Insert heading level 2" />
+				<bt:String id="Heading3.Tooltip" DefaultValue="Insert heading level 3" />			
+				<bt:String id="Heading4.Tooltip" DefaultValue="Insert heading level 4" />
+				<bt:String id="Heading5.Tooltip" DefaultValue="Insert heading level 5" />
+				<bt:String id="Heading6.Tooltip" DefaultValue="Insert heading level 6" />
+		  	<!-- Quotes. -->
+				<bt:String id="Quotes.Tooltip" DefaultValue="Quotes" />
+				<bt:String id="Quote.Header.Tooltip" DefaultValue="Insert quote heading" />
+				<bt:String id="Quote1.Tooltip" DefaultValue="Insert quote level 1" />
+				<bt:String id="Quote2.Tooltip" DefaultValue="Insert quote level 2" />
+				<bt:String id="Quote3.Tooltip" DefaultValue="Insert quote level 3" />	
+				<bt:String id="Quote4.Tooltip" DefaultValue="Insert quote level 4" />					
+				<bt:String id="Quote.List1.Tooltip" DefaultValue="Insert quote list level 1" />
+				<bt:String id="Quote.List2.Tooltip" DefaultValue="Insert quote list level 2" />
+				<bt:String id="Quote.List3.Tooltip" DefaultValue="Insert quote list level 3" />
+				<bt:String id="Quote.Bullet1.Tooltip" DefaultValue="Insert quote bullet level 1" />
+				<bt:String id="Quote.Bullet2.Tooltip" DefaultValue="Insert quote bullet level 2" />
+				<bt:String id="Quote.Bullet3.Tooltip" DefaultValue="Insert quote bullet level 3" />
+		  		<!-- Lists. -->
+				<bt:String id="Lists.Tooltip" DefaultValue="Lists" />
+				<bt:String id="List.Header.Tooltip" DefaultValue="Insert List heading" />
+				<bt:String id="List1.Tooltip" DefaultValue="Insert List level 1" />
+				<bt:String id="List2.Tooltip" DefaultValue="Insert List level 2" />
+				<bt:String id="List3.Tooltip" DefaultValue="Insert List level 3" />		
+				<bt:String id="List4.Tooltip" DefaultValue="Insert List level 4" />		
+				<bt:String id="List.alt1.Tooltip" DefaultValue="Insert alternative list level 1" />
+				<bt:String id="List.alt2.Tooltip" DefaultValue="Insert alternative list level 2" />
+				<bt:String id="List.alt3.Tooltip" DefaultValue="Insert alternative list level 3" />
+				<bt:String id="List.alt4.Tooltip" DefaultValue="Insert alternative list level 4" />
+				<bt:String id="List.Bullet1.Tooltip" DefaultValue="Insert bullet level 1" />
+				<bt:String id="List.Bullet2.Tooltip" DefaultValue="Insert bullet level 2" />
+				<bt:String id="List.Bullet3.Tooltip" DefaultValue="Insert bullet level 3" />
+				<bt:String id="List.Bullet4.Tooltip" DefaultValue="Insert bullet level 4" />
 
-			  <bt:String id="Contoso.WriteValueButton.Tooltip" DefaultValue="Choose to write value to document" />
-			  <bt:String id="Contoso.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and choose the 'Show task pane' button to get started." />
+			  <bt:String id="Tippy.WriteValueButton.Tooltip" DefaultValue="Choose to write value to document" />
+			  <bt:String id="Tippy.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and choose the 'Show task pane' button to get started." />
 		  </bt:LongStrings>
 	  </Resources>
   </VersionOverrides>
